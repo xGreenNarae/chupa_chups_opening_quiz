@@ -1,0 +1,5 @@
+/* 예시: 부드러운 전환 */
+#popup {
+  transition: transform 0.3s ease-in-out;
+}
+

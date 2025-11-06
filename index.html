@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>츄파춥스 오프닝 퀴즈</title>
+  </head>
+  <body class="m-0 p-0 overflow-hidden">
+    <!-- 첫 페이지 -->
+    <section
+      id="page1"
+      class="bg-[url('./public/page1.png')] bg-cover bg-center bg-no-repeat w-screen h-screen flex flex-col justify-center items-center text-white"
+    >
+      <h1 class="text-2xl font-bold mb-4 drop-shadow-lg">
+        🍭 츄파춥스 퀴즈 🍭
+      </h1>
+      <p class="mb-6 drop-shadow-lg">츄파춥스의 원산지는 어디일까요?</p>
+      <button
+        onclick="nextPage(2)"
+        class="bg-pink-500 text-white px-4 py-2 rounded-lg shadow-lg"
+      >
+        다음
+      </button>
+    </section>
+
+    <!-- 두 번째 페이지 -->
+    <section
+      id="page2"
+      class="hidden bg-[url('./public/page2.png')] bg-cover bg-center bg-no-repeat w-screen h-screen flex flex-col justify-center items-center text-white"
+    >
+      <h2 class="text-2xl font-bold mb-4">정답은... 🇪🇸 스페인!</h2>
+      <button
+        onclick="showPopup()"
+        class="bg-blue-500 text-white px-4 py-2 rounded-lg"
+      >
+        팝업 보기
+      </button>
+    </section>
+
+    <!-- 팝업 -->
+    <div
+      id="popup"
+      class="fixed bottom-0 inset-x-0 bg-white shadow-lg p-6 rounded-t-2xl hidden transition-transform"
+    >
+      <p class="mb-4">
+        츄파춥스는 1958년 스페인에서 처음 만들어졌어요!
+      </p>
+      <button
+        onclick="hidePopup()"
+        class="bg-gray-800 text-white px-4 py-2 rounded-lg"
+      >
+        닫기
+      </button>
+    </div>
+
+    <script src="./src/main.js"></script>
+  </body>
+</html>
