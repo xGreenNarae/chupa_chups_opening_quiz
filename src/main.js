@@ -1,6 +1,24 @@
-document.addEventListener('DOMContentLoaded', () => {
+const loadPartials = async () => {
+  const placeholders = Array.from(document.querySelectorAll('[data-partial]'));
+  await Promise.all(
+    placeholders.map(async placeholder => {
+      const src = placeholder.dataset.partial;
+      if (!src) return;
+      try {
+        const response = await fetch(`./src/${src}`);
+        if (!response.ok) throw new Error(`Failed to fetch ${src}`);
+        const markup = await response.text();
+        placeholder.outerHTML = markup;
+      } catch (error) {
+        console.error(`[partials] ${error.message}`);
+      }
+    })
+  );
+};
+
+const initApp = () => {
   const pages = document.querySelectorAll('[data-page]');
-  const quizOptions = document.querySelectorAll('.quiz-option');
+  const quizOptions = document.querySelectorAll('[data-page="quiz-1"] .quiz-option');
   const submitBtn = document.querySelector('[data-submit]');
   const sheet = document.querySelector('[data-sheet]');
   const sheetBackdrop = document.querySelector('[data-sheet-dismiss]');
@@ -41,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const updateSubmitState = enabled => {
+    if (!submitBtn) return;
     submitBtn.disabled = !enabled;
     submitBtn.classList.toggle('is-ready', enabled);
   };
@@ -59,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const toggleSheet = state => {
-    sheet.classList.toggle('is-open', state);
+    sheet?.classList.toggle('is-open', state);
     sheet?.setAttribute('aria-hidden', state ? 'false' : 'true');
   };
 
@@ -81,6 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
   sheetBackdrop?.addEventListener('click', closeSheet);
   sheetNext?.addEventListener('click', () => {
     closeSheet();
-    // Placeholder for moving to the next question once it's implemented.
+    goTo('quiz-2');
   });
+};
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadPartials();
+  initApp();
 });
