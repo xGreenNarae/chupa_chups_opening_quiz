@@ -16,6 +16,37 @@ const loadPartials = async () => {
     );
 };
 
+const initViewportUnit = () => {
+    const root = document.documentElement;
+    if (!root) return;
+
+    let frame = null;
+    const setViewportHeight = () => {
+        if (frame) cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(() => {
+            const height =
+                window.visualViewport?.height ?? window.innerHeight ?? root.clientHeight;
+            root.style.setProperty('--viewport-height', `${Math.round(height)}px`);
+        });
+    };
+
+    setViewportHeight();
+
+    const handleVisibilityChange = () => {
+        if (!document.hidden) setViewportHeight();
+    };
+
+    window.addEventListener('resize', setViewportHeight, { passive: true });
+    window.addEventListener('orientationchange', setViewportHeight);
+    window.addEventListener('focus', setViewportHeight, true);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', setViewportHeight, { passive: true });
+        window.visualViewport.addEventListener('scroll', setViewportHeight, { passive: true });
+    }
+};
+
 const initApp = () => {
     const pages = document.querySelectorAll('[data-page]');
     const sheet = document.querySelector('[data-sheet]');
@@ -306,6 +337,7 @@ const initApp = () => {
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
+    initViewportUnit();
     await loadPartials();
     initApp();
 });

@@ -2,6 +2,7 @@
   --hero-dark: #171819;
   --hero-mid: #121015;
   --hero-accent: #1f1a25;
+  --viewport-height: 100vh;
 }
 
 body {
@@ -9,15 +10,14 @@ body {
     'Segoe UI', sans-serif;
   background-color: var(--hero-dark);
   min-height: 100vh;
-  min-height: 100svh;
-  min-height: 100dvh;
+  min-height: var(--viewport-height, 100vh);
   overflow-x: hidden;
   overflow-y: auto;
 }
 
 .app-shell {
   min-height: 100vh;
-  min-height: 100dvh;
+  min-height: var(--viewport-height, 100vh);
   background-color: var(--hero-dark);
   overflow: hidden;
 }
@@ -25,7 +25,7 @@ body {
 .page {
   width: 100%;
   min-height: 100vh;
-  min-height: 100dvh;
+  min-height: var(--viewport-height, 100vh);
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -105,12 +105,7 @@ body {
   gap: 8px;
   padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px) * 0.4);
   min-height: 100vh;
-}
-
-@supports (min-height: 100dvh) {
-  .quiz-shell .quiz-panel {
-    min-height: 100dvh;
-  }
+  min-height: var(--viewport-height, 100vh);
 }
 
 .quiz-body {
@@ -471,6 +466,7 @@ body {
 
 .result-card {
   min-height: 100vh;
+  min-height: var(--viewport-height, 100vh);
   max-width: 420px;
   margin: 0 auto;
   padding: 96px 32px 48px;
