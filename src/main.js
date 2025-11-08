@@ -22,8 +22,8 @@ const initApp = () => {
   const sheetBackdrop = document.querySelector('[data-sheet-dismiss]');
   const sheetNext = document.querySelector('[data-sheet-next]');
   const sheetIcon = document.querySelector('[data-sheet-icon]');
-  const sheetStatus = document.querySelector('[data-sheet-status]');
   const sheetTitle = document.querySelector('[data-sheet-title]');
+  const sheetSubtitle = document.querySelector('[data-sheet-subtitle]');
   const sheetBody = document.querySelector('[data-sheet-body]');
   let sheetReturnFocusEl = null;
   let sheetNextAction = null;
@@ -45,15 +45,15 @@ const initApp = () => {
     default: {
       correct: {
         icon: '✔',
-        status: '정답이에요!',
         title: '훌륭해요!',
+        subtitle: '정답입니다!',
         body: '다음 퀴즈도 가볼까요?',
         cta: '다음'
       },
       wrong: {
         icon: '✕',
-        status: '헉, 살짝 빗나갔네요!',
         title: '다시 한 번 달콤한 상상력을 발휘해봐요!',
+        subtitle: '아쉽게도 오답입니다.',
         body: '힌트를 떠올리면서 다시 도전해봐요.',
         cta: '닫기'
       }
@@ -61,73 +61,73 @@ const initApp = () => {
     'quiz-1': {
       correct: {
         icon: '✔',
-        status: '정답이에요!',
-        title: '츄파 박사 타이틀이 눈앞이에요!',
+        title: '정답! 츄파 타임머신 탑승 성공!!',
+        subtitle: '처음부터 느낌이 굉장히 좋네요 🍭',
         body:
-          '츄파춥스는 스페인에서 처음 만들어졌어요. 창업자 Enric Bernat가 "손에 묻지 않고 먹을 수 있는 사탕"을 떠올리며 만들었답니다.',
+          '츄파춥스는 1958년 스페인에서 처음 만들어진 사탕이에요. 창업자 Enic Bernat가 “사탕을 손에 묻지 않고 먹을 수 있으면 좋겠다!”라는 생각으로 포크처럼 먹는 사탕, 나아가 막대를 꽂은 사탕을 만들었어요.',
         cta: '다음'
       },
       wrong: {
         icon: '✕',
-        status: '헉, 살짝 빗나갔네요!',
-        title: '다시 한 번 달콤한 상상력을 발휘해봐요!',
+        title: '헉, 살짝 빗나갔네요😢<br>츄파 박사 타이틀이 도망가고 있어요!',
+        subtitle: '다시 한 번 달콤한 상상력을 발휘해봐요!',
         body:
-          '츄파 박사 타이틀이 도망가고 있어요! 츄파춥스의 고향은 스페인이니, 축구와 투우의 나라를 기억해두면 좋아요.',
+          '츄파춥스는 스페인에서 처음 만들어졌답니다. 창업자 Enric Bernat가 “사탕을 손에 묻지 않고 먹을 수 있으면 좋겠다!”는 생각으로 포크처럼 먹는 사탕, 나아가 막대를 꽂은 사탕을 만들었어요. 이제 여러분은 사탕의 고향이 스페인이라는 걸 알게 되었죠?',
         cta: '다음'
       }
     },
     'quiz-2': {
       correct: {
         icon: '✔',
-        status: '정답이에요!',
-        title: '살바도르 달리가 직접 완성했어요!',
+        title: '정답! 맞혔다! 역시 눈썰미 최고~ 🙌',
+        subtitle: '맞아요~초현실주의 거장이 직접 디자인 했답니다!',
         body:
-          '1969년 츄파춥스는 초현실주의 거장 살바도르 달리에게 로고를 의뢰해 현재의 꽃 모양 로고가 탄생했어요.',
+          '달리는 고향 친구의 부탁으로, 직접 로고를 냅킨에 휘리릭 그려줬대요. ‘로고도 예술이다.’라며 데이지 꽃잎으로 감싼 디자인을 제안했어요. 사탕 위에 로고를 올리자고 한 것도 그의 아이디어였죠.',
         cta: '다음'
       },
       wrong: {
         icon: '✕',
-        status: '조금 아쉬워요!',
-        title: '츄파춥스 로고의 주인공은 살바도르 달리!',
+        title: '땡! 앗, 아쉬워요😦',
+        subtitle: '사실 츄파춥스의 로고는 달리의 손 끝에서<br>탄생했답니다!',
         body:
-          '초현실주의 화가 달리가 포장지 위에서 꽃처럼 피어나는 로고를 디자인했답니다. 다시 한번 생각해볼까요?',
+          '달리는 고향 친구의 부탁으로 지금의 츄파춥스 상징인 데이지 꽃 모양을 냅킨에 휘리릭 그려줬대요. 사탕의 옆면이 아닌 위에 로고를 올리라는 조언도 덧붙였죠.',
         cta: '다음'
       }
     },
     'quiz-3': {
       correct: {
         icon: '✔',
-        status: '정답이에요!',
-        title: '전 세계 164개국이 츄파 열풍!',
+        title: '정답!!😆',
+        subtitle: '이 센스, 츄파춥스 본사에서 스카웃해가겠는걸요?',
         body:
-          '90년대에 츄파춥스는 무려 164개국에서 판매되며 글로벌 아이콘으로 자리 잡았어요.',
+          '츄파춥스는 무려 164개 나라에서 사람들의 사랑을 받고 있답니다. 어디를 가든 알록달록한 츄파춥스를 만날 수 있어요! 심지어 우주에서도 츄파춥스를 먹은 적이 있대요! 세상에서 가장 멀리 간 사탕이기도 하죠😎🍬',
         cta: '다음'
       },
       wrong: {
         icon: '✕',
-        status: '조금만 더!',
-        title: '정답은 164개국!',
+        title: '웁스! 오답이에요.',
+        subtitle: '괜찮아요 달리도 한 번쯤 틀렸을걸요?',
         body:
-          '츄파춥스는 전 세계 164개국에서 사랑을 받았답니다. 숫자를 한 번 더 떠올려볼까요?',
+          '정답은 바로 164개 나라였어요. 츄파춥스는 지구 곳곳에서 사랑 받고 있답니다. 미국, 프랑스, 일본, 심지어 남아프리카에서도 즐겨먹어요! 스페인에서 태어난 작은 사탕이 이렇게 전 세계로 퍼졌다는 게 신기하지 않나요?',
         cta: '다음'
       }
     },
     'quiz-4': {
       correct: {
         icon: '✔',
-        status: '정답이에요!',
-        title: '츄파의 찐덕후 인증!',
+        title: '딩동댕~',
+        subtitle: '달콤함 레벨 업!',
         body:
-          '샤워벨트는 상상 속 상품이에요. 나머지는 실제로 즐길 수 있는 츄파춥스 라인업!',
-        cta: '결과 보기'
+          '‘레인보우 팝스’는 실제로 존재하지 않는 상품이에요. 그래도 실망하지 마세요~ 츄파춥스는 우리가 아는 형태 뿐만 아니라 슈가프리, 미니, 사워벨트(젤리 형태) 등 다양한 제품으로도 즐길 수 있답니다.',
+        cta: '결과 확인하기'
       },
       wrong: {
         icon: '✕',
-        status: '마지막 한 끗!',
-        title: '존재하지 않는 건 샤워벨트!',
+        title: '땡! 달콤함에 속았나봐요!',
+        subtitle: '충치 조심해야겠어요~🤪',
         body:
-          '슈가프리, 미니, 레인보우 팝스는 모두 실제 상품이에요. 샤워벨트만 상상 속 제품이죠.',
-        cta: '결과 보기'
+          '‘레인보우 팝스’는 이름만 들어도 맛있을 것 같지만, 안타깝게도 실제로는 없는 제품이에요. 츄파춥스는 대신 과일맛, 콜라맛, 크리미맛 등 수십, 수백 가지 맛으로 전 세계 사람들의 입맛을 사로잡고 있죠!',
+        cta: '결과 확인하기'
       }
     }
   };
@@ -139,11 +139,11 @@ const initApp = () => {
 
   const applySheetCopy = copy => {
     if (!copy) return;
-    if (sheetIcon) sheetIcon.textContent = copy.icon;
-    if (sheetStatus) sheetStatus.textContent = copy.status;
-    if (sheetTitle) sheetTitle.textContent = copy.title;
-    if (sheetBody) sheetBody.textContent = copy.body;
-    if (sheetNext) sheetNext.textContent = copy.cta ?? '다음';
+    if (sheetIcon) sheetIcon.textContent       = copy.icon;
+    if (sheetTitle) sheetTitle.innerHTML       = copy.title ?? '';
+    if (sheetSubtitle) sheetSubtitle.innerHTML = copy.subtitle ?? '';
+    if (sheetBody) sheetBody.innerHTML         = copy.body ?? '';
+    if (sheetNext) sheetNext.textContent       = copy.cta ?? '다음';
   };
 
   const focusSafely = element => {
@@ -229,8 +229,7 @@ const initApp = () => {
       if (isFinalQuiz) {
         setSheetNextAction(() => {
           const correctCount = countCorrectAnswers();
-          // debug
-          console.log(`Correct answers: ${correctCount} out of ${totalQuizzes}`);
+          console.log(`DEBUG: Correct answers: ${correctCount} out of ${totalQuizzes}`);
           const resultPageId = correctCount === totalQuizzes ? 'result-perfect' : 'result-progress';
           goTo(resultPageId);
           return (

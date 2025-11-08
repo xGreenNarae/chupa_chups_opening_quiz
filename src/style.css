@@ -302,6 +302,14 @@ body {
   color: #000;
 }
 
+.sheet__subtitle {
+  margin-top: 2px;
+  font-size: 1.1rem;             /* body(0.95)보다 크고, title(1.35)보다 작게 */
+  font-weight: 500;              /* 약한 bold 느낌 (눈에 띄지만 과하지 않게) */
+  color: rgba(0, 0, 0, 0.75);    /* 본문보다 살짝 옅게 */
+  line-height: 1.4;              /* body보다 약간 촘촘하게 */
+}
+
 .sheet__body {
   margin-top: 14px;
   line-height: 1.5;
