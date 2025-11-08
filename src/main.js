@@ -51,8 +51,9 @@ const initApp = () => {
 
     const getResultPageId = correctCount => {
         if (correctCount === totalQuizzes) return 'result-perfect';
+        if (correctCount === 0) return 'result-progress';
         if (correctCount === 1) return 'result-1of4';
-        if (correctCount === 3) return 'result-3of4';
+        if (correctCount >= 2) return 'result-3of4';
         return 'result-progress';
     };
 

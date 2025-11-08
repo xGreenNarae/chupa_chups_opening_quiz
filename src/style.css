@@ -8,15 +8,26 @@ body {
   font-family: 'Noto Sans KR', system-ui, -apple-system, BlinkMacSystemFont,
     'Segoe UI', sans-serif;
   background-color: var(--hero-dark);
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
 }
 
 .app-shell {
   min-height: 100vh;
+  min-height: 100dvh;
   background-color: var(--hero-dark);
+  overflow: hidden;
 }
 
 .page {
   width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 .font-display {
@@ -474,33 +485,96 @@ body {
 }
 
 .result-badge {
+  --badge-bg-color: #ff3b6d;
+  --badge-text-color: #fff;
+  position: relative;
   display: inline-flex;
-  padding: 8px 12px;
-  border-radius: 7px;
-  font-size: 0.85rem;
-  font-weight: 0;
-  font-weight: semi-bold;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 26px 18px;
+  max-width: clamp(160px, 60vw, 240px);
+  padding: 14px 32px 22px;
+  color: var(--badge-text-color);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  text-wrap: balance;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  white-space: normal;
+  overflow: hidden;
   align-self: flex-start;
+  animation: result-badge-bounce 1.5s linear infinite;
+  transform-origin: bottom center;
+}
+
+.result-badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--badge-bg-color);
+  mask: url('../public/talk_balloon.svg') center / contain no-repeat;
+  -webkit-mask: url('../public/talk_balloon.svg') center / contain no-repeat;
+  z-index: -1;
+}
+
+@keyframes result-badge-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  28% {
+    transform: translateY(-22px);
+  }
+  40% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  58% {
+    transform: translateY(0);
+  }
+  64% {
+    transform: translateY(-8px);
+  }
+  72% {
+    transform: translateY(0);
+  }
+  78% {
+    transform: translateY(-5px);
+  }
+  84% {
+    transform: translateY(0);
+  }
+  90% {
+    transform: translateY(-3px);
+  }
+  95% {
+    transform: translateY(0);
+  }
 }
 
 .result-badge--perfect {
-  background: #d7304d;
-  color: #fff;
+  --badge-bg-color: #d7304d;
+  --badge-text-color: #fff;
 }
 
 .result-badge--3of4 {
-  background: #6d13aa;
-  color: #fff;
+  --badge-bg-color: #6d13aa;
+  --badge-text-color: #fff;
 }
 
 .result-badge--1of4 {
-  background: #75edfc;
-  color: #0a1800;
+  --badge-bg-color: #75edfc;
+  --badge-text-color: #0a1800;
 }
 
 .result-badge--progress {
-  background: #c9ff6a;
-  color: #0a1800;
+  --badge-bg-color: #c9ff6a;
+  --badge-text-color: #0a1800;
 }
 
 .result-title {
