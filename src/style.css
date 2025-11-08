@@ -130,9 +130,8 @@ body {
 
 .quiz-pretitle {
   flex: 1;
-  text-transform: uppercase;
-  letter-spacing: 0.35em;
-  font-size: 0.7rem;
+/*   letter-spacing: 0.1em; */
+  font-size: 0.8rem;
   text-align: center;
   color: #fff;
 }
@@ -160,8 +159,8 @@ body {
 .progress-node {
   position: relative;
   z-index: 1;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 999px;
   border: none;
   color: transparent;
@@ -190,65 +189,43 @@ body {
 }
 
 .progress-node.is-active {
-  width: 56px;
-  height: 36px;
+  /* width: 20px;
+  height: 20px; */
   border-radius: 18px;
-  background: linear-gradient(120deg, #cff8ff 0%, #6dd8ff 100%);
+  background: url('../public/progress-bg-cloud.svg') center / cover no-repeat;
   color: #032330;
   font-size: 0.95rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 18px rgba(109, 216, 255, 0.45);
+/*   box-shadow: 0 8px 18px rgba(109, 216, 255, 0.45); */
   text-shadow: none;
 }
 
-.progress-node.is-active::before,
 .progress-node.is-active::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.75);
-  z-index: -1;
+  content: none;
 }
 
-.progress-node.is-active::before {
-  width: 26px;
-  height: 26px;
-  top: -10px;
-  left: 6px;
-}
-
-.progress-node.is-active::after {
-  width: 30px;
-  height: 30px;
-  top: -6px;
-  right: 4px;
-}
-
-.quiz-question__index {
+/* .quiz-question__index {
   font-size: clamp(2.7rem, 10vw, 3.4rem);
   font-weight: 700;
   line-height: 1;
-}
+} */
 
 .quiz-pill {
-  position: relative;
+  background: url('../public/talk_balloon.svg') center / contain no-repeat;
+  padding: 0px 8px 5px;
+  width: 72px;  /* 최소 가로 크기 */
+  height: 32px;
+  font-size: 0.8rem; /* 글자만 작게 */
+  color: #1b1200;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: #fff48a;
-  border-radius: 999px;
-  padding: 8px 18px;
-  font-size: 0.95rem;
-  color: #1b1200;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  box-shadow: 0 8px 20px rgba(255, 244, 138, 0.35);
+  justify-content: center;
 }
 
-.quiz-pill::after {
+/* .quiz-pill::after {
   content: '';
   position: absolute;
   left: 18px;
@@ -259,10 +236,10 @@ body {
   border-radius: 2px;
   transform: rotate(45deg);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-}
+} */
 
 .quiz-question__text {
-  margin-top: 24px;
+  margin-top: 12px;
   font-size: 1.25rem;
   line-height: 1.55;
   font-weight: 700;
@@ -279,7 +256,7 @@ body {
 .quiz-option {
   width: 100%;
   border-radius: 18px;
-  border: 2px solid rgba(255, 255, 255, 0.55);
+  border: 2px solid rgba(255, 255, 255, 0.8);
   padding: 16px 22px;
   text-align: left;
   font-size: 1rem;
