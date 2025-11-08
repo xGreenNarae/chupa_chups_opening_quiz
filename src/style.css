@@ -9,8 +9,10 @@ body {
     'Segoe UI', sans-serif;
   background-color: var(--hero-dark);
   min-height: 100vh;
+  min-height: 100svh;
   min-height: 100dvh;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .app-shell {
