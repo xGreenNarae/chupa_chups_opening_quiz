@@ -5,10 +5,10 @@
   class="page quiz-shell hidden"
   aria-labelledby="quiz-3-heading"
 >
-  <div class="mx-auto flex min-h-screen max-w-sm flex-col px-6 py-8">
+  <div class="mx-auto flex min-h-screen max-w-sm flex-col px-6 pt-8 pb-2 quiz-panel">
     <header class="quiz-header">
       <button type="button" class="back-btn" aria-label="이전 단계" data-navigate="quiz-2">
-        &larr;
+        &lt;
       </button>
       <p class="quiz-pretitle">chupachups pop-up QUIZ</p>
     </header>
@@ -20,40 +20,42 @@
       <span class="progress-node">4</span>
     </div>
 
-    <div class="quiz-question">
-      <div class="flex items-center gap-3">
-        <p class="quiz-question__index">Q3</p>
-        <span class="quiz-pill">1990년대</span>
+    <div class="quiz-body">
+      <div class="quiz-question">
+        <div class="flex items-center gap-3">
+          <p class="quiz-question__index">Q3</p>
+          <span class="quiz-pill">1990년대</span>
+        </div>
+        <p id="quiz-3-heading" class="quiz-question__text">
+          90년대의 츄파춥스는 전 세계 몇 개국에서 팔리기 시작했을까요?🌍
+        </p>
       </div>
-      <p id="quiz-3-heading" class="quiz-question__text">
-        90년대의 츄파춥스는 전 세계 몇 개국에서 팔리기 시작했을까요?🌍
-      </p>
-    </div>
 
-    <div class="quiz-options" role="radiogroup" aria-label="정답 선택">
-      <button type="button" class="quiz-option" data-option="3-1" role="radio" aria-checked="false">
-        24개국
-      </button>
-      <button type="button" class="quiz-option" data-option="3-2" role="radio" aria-checked="false">
-        160개국
-      </button>
-      <button
-        type="button"
-        class="quiz-option"
-        data-option="3-3"
-        data-correct="true"
-        role="radio"
-        aria-checked="false"
-      >
-        164개국
-      </button>
-      <button type="button" class="quiz-option" data-option="3-4" role="radio" aria-checked="false">
-        208개국
+      <div class="quiz-options" role="radiogroup" aria-label="정답 선택">
+        <button type="button" class="quiz-option" data-option="3-1" role="radio" aria-checked="false">
+          24개국
+        </button>
+        <button type="button" class="quiz-option" data-option="3-2" role="radio" aria-checked="false">
+          160개국
+        </button>
+        <button
+          type="button"
+          class="quiz-option"
+          data-option="3-3"
+          data-correct="true"
+          role="radio"
+          aria-checked="false"
+        >
+          164개국
+        </button>
+        <button type="button" class="quiz-option" data-option="3-4" role="radio" aria-checked="false">
+          208개국
+        </button>
+      </div>
+
+      <button type="button" class="quiz-submit" disabled data-submit>
+        정답 확인
       </button>
     </div>
-
-    <button type="button" class="quiz-submit" disabled data-submit>
-      정답 확인
-    </button>
   </div>
 </section>

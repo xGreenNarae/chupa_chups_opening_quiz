@@ -5,10 +5,10 @@
   class="page quiz-shell hidden"
   aria-labelledby="quiz-2-heading"
 >
-  <div class="mx-auto flex min-h-screen max-w-sm flex-col px-6 py-8">
+  <div class="mx-auto flex min-h-screen max-w-sm flex-col px-6 pt-8 pb-2 quiz-panel">
     <header class="quiz-header">
       <button type="button" class="back-btn" aria-label="이전 단계" data-navigate="quiz-1">
-        &larr;
+        &lt;
       </button>
       <p class="quiz-pretitle">chupachups pop-up QUIZ</p>
     </header>
@@ -19,40 +19,42 @@
       <span class="progress-node">4</span>
     </div>
 
-    <div class="quiz-question">
-      <div class="flex items-center gap-3">
-        <p class="quiz-question__index">Q2</p>
-        <span class="quiz-pill">1969년</span>
+    <div class="quiz-body">
+      <div class="quiz-question">
+        <div class="flex items-center gap-3">
+          <p class="quiz-question__index">Q2</p>
+          <span class="quiz-pill">1969년</span>
+        </div>
+        <p id="quiz-2-heading" class="quiz-question__text">
+          츄파춥스의 지금 로고, 누가 디자인 했을까요?
+        </p>
       </div>
-      <p id="quiz-2-heading" class="quiz-question__text">
-        츄파춥스의 지금 로고, 누가 디자인 했을까요?
-      </p>
-    </div>
 
-    <div class="quiz-options" role="radiogroup" aria-label="정답 선택">
-      <button type="button" class="quiz-option" data-option="2-1" role="radio" aria-checked="false">
-        팝아트의 아이콘! 앤디워홀
-      </button>
-      <button
-        type="button"
-        class="quiz-option"
-        data-option="2-2"
-        data-correct="true"
-        role="radio"
-        aria-checked="false"
-      >
-        초현실주의의 거장! 살바도르 달리
-      </button>
-      <button type="button" class="quiz-option" data-option="2-3" role="radio" aria-checked="false">
-        입체파의 전설! 파블로 피카소
-      </button>
-      <button type="button" class="quiz-option" data-option="2-4" role="radio" aria-checked="false">
-        찰리와 초콜릿 공장의 주인! 윌리웡카
+      <div class="quiz-options" role="radiogroup" aria-label="정답 선택">
+        <button type="button" class="quiz-option" data-option="2-1" role="radio" aria-checked="false">
+          팝아트의 아이콘! 앤디워홀
+        </button>
+        <button
+          type="button"
+          class="quiz-option"
+          data-option="2-2"
+          data-correct="true"
+          role="radio"
+          aria-checked="false"
+        >
+          초현실주의의 거장! 살바도르 달리
+        </button>
+        <button type="button" class="quiz-option" data-option="2-3" role="radio" aria-checked="false">
+          입체파의 전설! 파블로 피카소
+        </button>
+        <button type="button" class="quiz-option" data-option="2-4" role="radio" aria-checked="false">
+          찰리와 초콜릿 공장의 주인! 윌리웡카
+        </button>
+      </div>
+
+      <button type="button" class="quiz-submit" disabled data-submit>
+        정답 확인
       </button>
     </div>
-
-    <button type="button" class="quiz-submit" disabled data-submit>
-      정답 확인
-    </button>
   </div>
 </section>

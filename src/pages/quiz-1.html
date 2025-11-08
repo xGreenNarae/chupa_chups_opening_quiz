@@ -5,10 +5,10 @@
   class="page quiz-shell hidden"
   aria-labelledby="quiz-1-heading"
 >
-  <div class="mx-auto flex min-h-screen max-w-sm flex-col px-6 py-8">
+  <div class="mx-auto flex min-h-screen max-w-sm flex-col px-6 pt-8 pb-2 quiz-panel">
     <header class="quiz-header">
       <button type="button" class="back-btn" aria-label="이전 단계" data-navigate="landing">
-        &larr;
+        &lt;
       </button>
       <p class="quiz-pretitle">chupachups pop-up QUIZ</p>
     </header>
@@ -20,40 +20,42 @@
       <span class="progress-node">4</span>
     </div>
 
-    <div class="quiz-question">
-      <div class="flex items-center gap-3">
-        <p class="quiz-question__index">Q1</p>
-        <span class="quiz-pill">1958년</span>
+    <div class="quiz-body">
+      <div class="quiz-question">
+        <div class="flex items-center gap-3">
+          <p class="quiz-question__index">Q1</p>
+          <span class="quiz-pill">1958년</span>
+        </div>
+        <p id="quiz-1-heading" class="quiz-question__text">
+          세계에서 가장 유명한 사탕, 츄파춥스는 어느 나라에서 태어났을까요?
+        </p>
       </div>
-      <p id="quiz-1-heading" class="quiz-question__text">
-        세계에서 가장 유명한 사탕, 츄파춥스는 어느 나라에서 태어났을까요?
-      </p>
-    </div>
 
-    <div class="quiz-options" role="radiogroup" aria-label="정답 선택">
-      <button type="button" class="quiz-option" data-option="us" role="radio" aria-checked="false">
-        햄버거의 나라, 미국
-      </button>
-      <button type="button" class="quiz-option" data-option="jp" role="radio" aria-checked="false">
-        서브컬쳐의 나라, 일본
-      </button>
-      <button type="button" class="quiz-option" data-option="kr" role="radio" aria-checked="false">
-        문화 강국, 대한민국
-      </button>
-      <button
-        type="button"
-        class="quiz-option"
-        data-option="es"
-        data-correct="true"
-        role="radio"
-        aria-checked="false"
-      >
-        축구와 투우의 나라, 스페인
+      <div class="quiz-options" role="radiogroup" aria-label="정답 선택">
+        <button type="button" class="quiz-option" data-option="us" role="radio" aria-checked="false">
+          햄버거의 나라, 미국
+        </button>
+        <button type="button" class="quiz-option" data-option="jp" role="radio" aria-checked="false">
+          서브컬쳐의 나라, 일본
+        </button>
+        <button type="button" class="quiz-option" data-option="kr" role="radio" aria-checked="false">
+          문화 강국, 대한민국
+        </button>
+        <button
+          type="button"
+          class="quiz-option"
+          data-option="es"
+          data-correct="true"
+          role="radio"
+          aria-checked="false"
+        >
+          축구와 투우의 나라, 스페인
+        </button>
+      </div>
+
+      <button type="button" class="quiz-submit" disabled data-submit>
+        정답 확인
       </button>
     </div>
-
-    <button type="button" class="quiz-submit" disabled data-submit>
-      정답 확인
-    </button>
   </div>
 </section>
