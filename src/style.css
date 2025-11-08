@@ -83,6 +83,7 @@ body {
 
 .hero-cta {
   transition: transform 180ms ease, box-shadow 180ms ease;
+  margin-bottom: 12px;
 }
 
 .hero-cta:active {
@@ -337,7 +338,7 @@ body {
 .quiz-submit {
   width: 70%;
   align-self: center;
-  margin-top: 16px;
+  margin-top: 6px;
   margin-bottom: 0;
   border-radius: 999px;
   padding: 16px 0;
