@@ -360,6 +360,30 @@ body {
   box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15);
 }
 
+@media (max-height: 760px) {
+  .hero-cta {
+    margin-bottom: 8px;
+  }
+
+  .quiz-shell .quiz-panel {
+    padding-top: 12px;
+    padding-bottom: 8px;
+  }
+
+  .quiz-body {
+    gap: 20px;
+  }
+
+  .quiz-options {
+    margin-top: 32px;
+    gap: 12px;
+  }
+
+  .quiz-submit {
+    margin-top: 0;
+  }
+}
+
 .sheet {
   position: fixed;
   inset: 0;
