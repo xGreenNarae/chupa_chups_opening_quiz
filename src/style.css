@@ -33,7 +33,8 @@ body {
 }
 
 .font-display {
-  font-family: 'Playfair Display', 'Times New Roman', serif;
+  font-family: 'Noto Sans KR', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
 }
 
 .hero-shell {
@@ -487,39 +488,18 @@ body {
 }
 
 .result-badge {
-  --badge-bg-color: #ff3b6d;
-  --badge-text-color: #fff;
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 26px 18px;
+  display: inline-block;
   max-width: clamp(160px, 60vw, 240px);
-  padding: 14px 32px 22px;
-  color: var(--badge-text-color);
-  font-size: 0.95rem;
-  font-weight: 700;
-  line-height: 1.25;
-  text-align: center;
-  text-wrap: balance;
-  word-break: break-word;
-  overflow-wrap: anywhere;
-  hyphens: auto;
-  white-space: normal;
-  overflow: hidden;
   align-self: flex-start;
   animation: result-badge-bounce 1.5s linear infinite;
   transform-origin: bottom center;
 }
 
-.result-badge::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--badge-bg-color);
-  mask: url('../public/talk_balloon.svg') center / contain no-repeat;
-  -webkit-mask: url('../public/talk_balloon.svg') center / contain no-repeat;
-  z-index: -1;
+.result-badge img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 @keyframes result-badge-bounce {
@@ -559,24 +539,11 @@ body {
   }
 }
 
-.result-badge--perfect {
-  --badge-bg-color: #d7304d;
-  --badge-text-color: #fff;
-}
-
-.result-badge--3of4 {
-  --badge-bg-color: #6d13aa;
-  --badge-text-color: #fff;
-}
-
-.result-badge--1of4 {
-  --badge-bg-color: #75edfc;
-  --badge-text-color: #0a1800;
-}
-
+/* Variant hooks retained for potential future overrides */
+.result-badge--perfect,
+.result-badge--3of4,
+.result-badge--1of4,
 .result-badge--progress {
-  --badge-bg-color: #c9ff6a;
-  --badge-text-color: #0a1800;
 }
 
 .result-title {
