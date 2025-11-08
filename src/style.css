@@ -1,5 +1,5 @@
 :root {
-  --hero-dark: #050505;
+  --hero-dark: #171819;
   --hero-mid: #121015;
   --hero-accent: #1f1a25;
 }
@@ -114,13 +114,14 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+  width: 100%;
   padding-bottom: 8px;
 }
 
 .back-btn {
   position: absolute;
   left: 0;
-  padding: 8px 10px;
+  padding: 8px 0px;
   border: none;
   background: transparent;
   color: rgba(255, 255, 255, 0.85);
@@ -129,9 +130,11 @@ body {
 }
 
 .quiz-pretitle {
-  flex: 1;
+  flex: 1 1 auto;
+  width: 100%;
+  display: block;
 /*   letter-spacing: 0.1em; */
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-align: center;
   color: #fff;
 }
@@ -433,6 +436,7 @@ body {
 }
 
 .sheet__action {
+  display: block;
   width: 70%;
   margin-top: 26px;
   margin-left: auto;
