@@ -3,55 +3,137 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Noto+Sans+KR:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./src/style.css" />
     <title>츄파춥스 오프닝 퀴즈</title>
   </head>
-  <body class="m-0 p-0 overflow-hidden">
-    <!-- 첫 페이지 -->
-    <section
-      id="page1"
-      class="bg-[url('./public/page1.png')] bg-cover bg-center bg-no-repeat w-screen h-screen flex flex-col justify-center items-center text-white"
-    >
-      <h1 class="text-2xl font-bold mb-4 drop-shadow-lg">
-        🍭 츄파춥스 퀴즈 🍭
-      </h1>
-      <p class="mb-6 drop-shadow-lg">츄파춥스의 원산지는 어디일까요?</p>
-      <button
-        onclick="nextPage(2)"
-        class="bg-pink-500 text-white px-4 py-2 rounded-lg shadow-lg"
+  <body class="min-h-screen bg-black text-white font-sans">
+    <div class="app-shell">
+      <section
+        id="landing"
+        data-page="landing"
+        class="page hero-shell relative min-h-screen overflow-hidden text-white"
+        aria-labelledby="hero-title"
       >
-        다음
-      </button>
-    </section>
+        <div class="relative z-10 mx-auto flex min-h-screen max-w-sm flex-col px-6 py-10">
+          <div class="flex-1">
+            <p class="eyebrow text-sm font-medium">관람하기 전에 잠깐!</p>
+            <h1
+              id="hero-title"
+              class="font-display text-[42px] leading-tight drop-shadow-lg"
+            >
+              ChupaChups<br />
+              <span class="text-2xl">popup-store</span>
+            </h1>
+            <p class="mt-6 text-base text-white/80 leading-relaxed">
+              츄파춥스의 알록달록한 역사로 뛰어들 준비됐나요?<br />
+              퀴즈 풀고, 팝업 관람 후
+              <span class="text-amber-200 font-semibold">Mystery Gift</span>
+              위치를 확인해봐요~
+            </p>
+            <p class="mt-4 text-sm text-white/70">
+              문제는 단 4개! 다 맞히면 츄파춥스 마스터~!
+            </p>
+          </div>
 
-    <!-- 두 번째 페이지 -->
-    <section
-      id="page2"
-      class="hidden bg-[url('./public/page2.png')] bg-cover bg-center bg-no-repeat w-screen h-screen flex flex-col justify-center items-center text-white"
-    >
-      <h2 class="text-2xl font-bold mb-4">정답은... 🇪🇸 스페인!</h2>
-      <button
-        onclick="showPopup()"
-        class="bg-blue-500 text-white px-4 py-2 rounded-lg"
-      >
-        팝업 보기
-      </button>
-    </section>
+          <button
+            type="button"
+            data-navigate="quiz"
+            class="hero-cta mt-10 rounded-full bg-white py-4 text-lg font-semibold text-[#252525] shadow-lg"
+          >
+            도전하기
+          </button>
+        </div>
+      </section>
 
-    <!-- 팝업 -->
-    <div
-      id="popup"
-      class="fixed bottom-0 inset-x-0 bg-white shadow-lg p-6 rounded-t-2xl hidden transition-transform"
-    >
-      <p class="mb-4">
-        츄파춥스는 1958년 스페인에서 처음 만들어졌어요!
-      </p>
-      <button
-        onclick="hidePopup()"
-        class="bg-gray-800 text-white px-4 py-2 rounded-lg"
+      <section
+        id="quiz"
+        data-page="quiz"
+        class="page quiz-shell hidden"
+        aria-labelledby="quiz-heading"
       >
-        닫기
-      </button>
+        <div class="mx-auto flex min-h-screen max-w-sm flex-col px-6 py-8">
+          <header class="quiz-header">
+            <button
+              type="button"
+              class="back-btn"
+              aria-label="이전 단계"
+              data-navigate="landing"
+            >
+              &larr;
+            </button>
+            <p class="quiz-pretitle">chupachups pop-up QUIZ</p>
+          </header>
+
+          <div class="progress-track" role="img" aria-label="1/4 단계">
+            <span class="progress-node is-active">1</span>
+            <span class="progress-node"></span>
+            <span class="progress-node"></span>
+            <span class="progress-node"></span>
+          </div>
+
+          <div class="quiz-question">
+            <div class="flex items-center gap-3">
+              <p class="quiz-question__index">Q1</p>
+              <span class="quiz-pill">1958년</span>
+            </div>
+            <p id="quiz-heading" class="quiz-question__text">
+              세계에서 가장 유명한 사탕, 츄파춥스는 어느 나라에서 태어났을까요?
+            </p>
+          </div>
+
+          <div class="quiz-options" role="radiogroup" aria-label="정답 선택">
+            <button type="button" class="quiz-option" data-option="us" role="radio" aria-checked="false">
+              햄버거의 나라, 미국
+            </button>
+            <button type="button" class="quiz-option" data-option="jp" role="radio" aria-checked="false">
+              서브컬처의 나라, 일본
+            </button>
+            <button type="button" class="quiz-option" data-option="kr" role="radio" aria-checked="false">
+              문화 강국, 대한민국
+            </button>
+            <button
+              type="button"
+              class="quiz-option"
+              data-option="es"
+              data-correct="true"
+              role="radio"
+              aria-checked="false"
+            >
+              축구와 투우의 나라, 스페인
+            </button>
+          </div>
+
+          <button type="button" class="quiz-submit" disabled data-submit>
+            정답 확인
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <div class="sheet" data-sheet aria-hidden="true">
+      <div class="sheet__backdrop" data-sheet-dismiss></div>
+      <section class="sheet__panel" aria-live="polite">
+        <div class="sheet__icon" data-sheet-icon>✔</div>
+        <p class="sheet__eyebrow" data-sheet-status>정답이에요!</p>
+        <h2 class="sheet__title" data-sheet-title>
+          츄파 박사 타이틀이 눈앞이에요!
+        </h2>
+        <p class="sheet__body" data-sheet-body>
+          츄파춥스는 스페인에서 처음 만들어졌어요. 창업자 Enric Bernat가
+          "손에 묻지 않고 먹을 수 있는 사탕은 어떨까?"라는 아이디어에서
+          탄생했답니다.
+        </p>
+        <button type="button" class="sheet__action" data-sheet-next>
+          다음
+        </button>
+      </section>
     </div>
 
     <script src="./src/main.js"></script>
