@@ -22,6 +22,7 @@ const initApp = () => {
   const sheetBackdrop = document.querySelector('[data-sheet-dismiss]');
   const sheetNext = document.querySelector('[data-sheet-next]');
   const sheetIcon = document.querySelector('[data-sheet-icon]');
+  const sheetPanel = document.querySelector('[data-sheet-panel]');
   const sheetTitle = document.querySelector('[data-sheet-title]');
   const sheetSubtitle = document.querySelector('[data-sheet-subtitle]');
   const sheetBody = document.querySelector('[data-sheet-body]');
@@ -29,6 +30,17 @@ const initApp = () => {
   let sheetNextAction = null;
   const totalQuizzes = 4;
   const quizResults = new Map();
+  const sheetStateClasses = ['sheet__panel--correct', 'sheet__panel--wrong'];
+  const sheetStateIcons = {
+    correct: {
+      src: './public/answer_correct_icon.svg',
+      alt: '정답 안내 아이콘'
+    },
+    wrong: {
+      src: './public/answer_wrong_icon.svg',
+      alt: '오답 안내 아이콘'
+    }
+  };
 
   const goTo = targetId => {
     if (!targetId) return;
@@ -137,9 +149,29 @@ const initApp = () => {
     return copy;
   };
 
-  const applySheetCopy = copy => {
+  const applySheetCopy = (copy, state) => {
     if (!copy) return;
-    if (sheetIcon) sheetIcon.textContent       = copy.icon;
+    if (sheetPanel && state) {
+      sheetStateClasses.forEach(className => sheetPanel.classList.remove(className));
+      const nextClass =
+        state === 'correct'
+          ? 'sheet__panel--correct'
+          : state === 'wrong'
+            ? 'sheet__panel--wrong'
+            : null;
+      if (nextClass) sheetPanel.classList.add(nextClass);
+    }
+
+    if (sheetIcon) {
+      const iconConfig = state ? sheetStateIcons[state] : null;
+      if (iconConfig && sheetIcon instanceof HTMLImageElement) {
+        sheetIcon.src = iconConfig.src;
+        sheetIcon.alt = iconConfig.alt;
+      } else if (!(sheetIcon instanceof HTMLImageElement)) {
+        sheetIcon.textContent = copy.icon ?? '';
+      }
+    }
+
     if (sheetTitle) sheetTitle.innerHTML       = copy.title ?? '';
     if (sheetSubtitle) sheetSubtitle.innerHTML = copy.subtitle ?? '';
     if (sheetBody) sheetBody.innerHTML         = copy.body ?? '';
@@ -221,9 +253,10 @@ const initApp = () => {
       const isCorrect = selectedOption.dataset.correct === 'true';
       const isFinalQuiz = page.dataset.isFinal === 'true';
       const nextPageId = page.dataset.nextPage || null;
-      const copy = getSheetCopy(quizId, isCorrect ? 'correct' : 'wrong');
+      const sheetState = isCorrect ? 'correct' : 'wrong';
+      const copy = getSheetCopy(quizId, sheetState);
 
-      applySheetCopy(copy);
+      applySheetCopy(copy, sheetState);
       quizResults.set(quizId, isCorrect);
 
       if (isFinalQuiz) {

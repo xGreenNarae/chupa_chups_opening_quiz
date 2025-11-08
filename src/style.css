@@ -137,23 +137,47 @@ body {
 }
 
 .progress-track {
+  --progress-node-size: 40px;
+  --progress-track-padding: 24px;
+  --progress-rail-color: rgba(255, 255, 255, 0.18);
+  --progress-mask-color: var(--hero-dark, #050505);
+  --progress-complete: 0;
+  --progress-complete-color: #ffffff;
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 16px 0 32px;
-  padding: 0 24px;
+  padding: 0 var(--progress-track-padding);
+  width: calc(100% + var(--progress-track-padding) * 2);
+  margin-left: calc(-1 * var(--progress-track-padding));
+  margin-right: calc(-1 * var(--progress-track-padding));
 }
 
 .progress-track::before {
   content: '';
   position: absolute;
   top: 50%;
-  left: 32px;
-  right: 32px;
+  left: calc(var(--progress-track-padding) + var(--progress-node-size) / 2);
+  right: calc(var(--progress-track-padding) + var(--progress-node-size) / 2);
   height: 2px;
-  background: rgba(255, 255, 255, 0.18);
+  background: var(--progress-rail-color);
   transform: translateY(-50%);
+  z-index: 0;
+}
+
+.progress-track::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: calc(var(--progress-track-padding) + var(--progress-node-size) / 2);
+  right: calc(var(--progress-track-padding) + var(--progress-node-size) / 2);
+  height: 2px;
+  background: var(--progress-complete-color);
+  transform: translateY(-50%) scaleX(var(--progress-complete));
+  transform-origin: left center;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .progress-node {
@@ -168,16 +192,28 @@ body {
   line-height: 1;
 }
 
+.progress-node::before,
 .progress-node::after {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+}
+
+.progress-node::before {
   width: 12px;
   height: 12px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.35);
-  transform: translate(-50%, -50%);
+  background: var(--progress-mask-color);
+  z-index: 0;
+}
+
+.progress-node::after {
+  width: 12px;
+  height: 12px;
+  background: var(--progress-rail-color);
+  z-index: 1;
 }
 
 .progress-node.is-complete {
@@ -185,16 +221,16 @@ body {
 }
 
 .progress-node.is-complete::after {
-  background: rgba(255, 255, 255, 0.75);
+  background: #fff;
 }
 
 .progress-node.is-active {
-  /* width: 20px;
-  height: 20px; */
-  border-radius: 18px;
-  background: url('../public/progress-bg-cloud.svg') center / cover no-repeat;
+  width: 28px;
+  height: 28px;
+  border-radius: 0px;
+  background: url('../public/progress-bg-cloud.svg') center / contain no-repeat;
   color: #032330;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -204,6 +240,10 @@ body {
 }
 
 .progress-node.is-active::after {
+  content: none;
+}
+
+.progress-node.is-active::before {
   content: none;
 }
 
@@ -283,6 +323,8 @@ body {
 }
 
 .quiz-submit {
+  width: 70%;
+  align-self: center;
   margin-top: 16px;
   margin-bottom: 0;
   border-radius: 999px;
@@ -335,11 +377,19 @@ body {
   position: relative;
   width: min(500px, 100%);
   border-radius: 28px 28px 0 0;
-  background: linear-gradient(180deg, #aef1ff 0%, #55d6ff 100%);
+  background: var(--sheet-panel-bg, #eaff70);
   padding: 32px 28px 40px;
   box-shadow: 0 -18px 40px rgba(0, 0, 0, 0.35);
   transform: translateY(110%);
   transition: transform 260ms ease;
+}
+
+.sheet__panel--correct {
+  --sheet-panel-bg: #eaff70;
+}
+
+.sheet__panel--wrong {
+  --sheet-panel-bg: #32f1ff;
 }
 
 .sheet.is-open .sheet__panel {
@@ -347,15 +397,11 @@ body {
 }
 
 .sheet__icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 18px;
-  background: #000;
-  color: #fff;
-  font-size: 2.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 64px;
+  height: 64px;
+  display: block;
+  object-fit: contain;
+  margin-top: -8px;
   margin-bottom: 16px;
 }
 
@@ -387,14 +433,17 @@ body {
 }
 
 .sheet__action {
-  width: 100%;
+  width: 70%;
   margin-top: 26px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 999px;
   background: #111;
   color: #fefefe;
   font-size: 1.05rem;
   font-weight: 600;
   padding: 16px 0;
+  text-align: center;
 }
 
 .result-shell {
