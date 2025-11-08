@@ -319,3 +319,68 @@ body {
   font-weight: 600;
   padding: 16px 0;
 }
+
+.result-shell {
+  background: linear-gradient(180deg, #050505 0%, #0a0a0c 100%);
+  color: #fff;
+}
+
+.result-card {
+  min-height: 100vh;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 96px 32px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 18px;
+}
+
+.result-card--perfect {
+  background: radial-gradient(circle at top, rgba(255, 75, 151, 0.15), transparent 65%);
+}
+
+.result-card--progress {
+  background: radial-gradient(circle at top, rgba(159, 255, 147, 0.15), transparent 65%);
+}
+
+.result-badge {
+  display: inline-flex;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  align-self: flex-start;
+}
+
+.result-badge--pink {
+  background: #ff3b6d;
+  color: #fff;
+}
+
+.result-badge--lime {
+  background: #c9ff6a;
+  color: #0a1800;
+}
+
+.result-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.result-body {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.result-cta {
+  margin-top: auto;
+  border-radius: 999px;
+  background: #fff;
+  color: #0d0d0f;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 16px 0;
+}

@@ -1,0 +1,59 @@
+<section
+  id="quiz-4"
+  data-page="quiz-4"
+  data-is-final="true"
+  class="page quiz-shell hidden"
+  aria-labelledby="quiz-4-heading"
+>
+  <div class="mx-auto flex min-h-screen max-w-sm flex-col px-6 py-8">
+    <header class="quiz-header">
+      <button type="button" class="back-btn" aria-label="이전 단계" data-navigate="quiz-3">
+        &larr;
+      </button>
+      <p class="quiz-pretitle">chupachups pop-up QUIZ</p>
+    </header>
+
+    <div class="progress-track" role="img" aria-label="4/4 단계">
+      <span class="progress-node is-complete" aria-hidden="true">✔</span>
+      <span class="progress-node is-complete" aria-hidden="true">✔</span>
+      <span class="progress-node is-complete" aria-hidden="true">✔</span>
+      <span class="progress-node is-active">4</span>
+    </div>
+
+    <div class="quiz-question">
+      <div class="flex items-center gap-3">
+        <p class="quiz-question__index">Q4</p>
+        <span class="quiz-pill">현재</span>
+      </div>
+      <p id="quiz-4-heading" class="quiz-question__text">
+        츄파춥스는 파생 상품이 정말 많은데요, 이 중 존재하지 않는 상품은?
+      </p>
+    </div>
+
+    <div class="quiz-options" role="radiogroup" aria-label="정답 선택">
+      <button type="button" class="quiz-option" data-option="4-1" role="radio" aria-checked="false">
+        츄파춥스 슈가프리
+      </button>
+      <button type="button" class="quiz-option" data-option="4-2" role="radio" aria-checked="false">
+        츄파춥스 미니
+      </button>
+      <button type="button" class="quiz-option" data-option="4-3" role="radio" aria-checked="false">
+        츄파춥스 레인보우 팝스
+      </button>
+      <button
+        type="button"
+        class="quiz-option"
+        data-option="4-4"
+        data-correct="true"
+        role="radio"
+        aria-checked="false"
+      >
+        츄파춥스 샤워벨트
+      </button>
+    </div>
+
+    <button type="button" class="quiz-submit" disabled data-submit>
+      정답 확인
+    </button>
+  </div>
+</section>

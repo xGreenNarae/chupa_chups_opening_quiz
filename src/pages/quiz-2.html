@@ -1,6 +1,7 @@
 <section
   id="quiz-2"
   data-page="quiz-2"
+  data-next-page="quiz-3"
   class="page quiz-shell hidden"
   aria-labelledby="quiz-2-heading"
 >
@@ -11,7 +12,6 @@
       </button>
       <p class="quiz-pretitle">chupachups pop-up QUIZ</p>
     </header>
-
     <div class="progress-track" role="img" aria-label="2/4 단계">
       <span class="progress-node is-complete" aria-hidden="true">✔</span>
       <span class="progress-node is-active">2</span>
@@ -30,21 +30,28 @@
     </div>
 
     <div class="quiz-options" role="radiogroup" aria-label="정답 선택">
-      <button type="button" class="quiz-option">
+      <button type="button" class="quiz-option" data-option="2-1" role="radio" aria-checked="false">
         팝아트의 아이콘! 앤디워홀
       </button>
-      <button type="button" class="quiz-option">
+      <button
+        type="button"
+        class="quiz-option"
+        data-option="2-2"
+        data-correct="true"
+        role="radio"
+        aria-checked="false"
+      >
         초현실주의의 거장! 살바도르 달리
       </button>
-      <button type="button" class="quiz-option">
+      <button type="button" class="quiz-option" data-option="2-3" role="radio" aria-checked="false">
         입체파의 전설! 파블로 피카소
       </button>
-      <button type="button" class="quiz-option">
+      <button type="button" class="quiz-option" data-option="2-4" role="radio" aria-checked="false">
         찰리와 초콜릿 공장의 주인! 윌리웡카
       </button>
     </div>
 
-    <button type="button" class="quiz-submit" disabled>
+    <button type="button" class="quiz-submit" disabled data-submit>
       정답 확인
     </button>
   </div>
