@@ -5,6 +5,20 @@
   --viewport-height: 100vh;
 }
 
+@supports (height: 100dvh) {
+  :root {
+    --viewport-height: 100dvh;
+  }
+}
+
+.min-h-screen {
+  min-height: var(--viewport-height, 100vh) !important;
+}
+
+.h-screen {
+  height: var(--viewport-height, 100vh) !important;
+}
+
 body {
   font-family: 'Noto Sans KR', system-ui, -apple-system, BlinkMacSystemFont,
     'Segoe UI', sans-serif;
