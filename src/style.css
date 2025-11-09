@@ -405,6 +405,79 @@ body {
   }
 }
 
+@media (max-height: 700px) {
+  .hero-shell h1 {
+    margin-top: clamp(20px, 6vh, 32px);
+  }
+
+  .hero-shell p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .quiz-shell .quiz-panel {
+    padding-top: 8px;
+    padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px) * 0.3);
+    gap: 4px;
+  }
+
+  .quiz-header {
+    padding-bottom: 0;
+    min-height: 48px;
+  }
+
+  .quiz-pretitle {
+    font-size: 0.8rem;
+  }
+
+  .progress-track {
+    --progress-node-size: 32px;
+    --progress-track-padding: 16px;
+    margin: 8px 0 20px;
+  }
+
+  .quiz-body {
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .quiz-question__text {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  .quiz-options {
+    margin-top: 22px;
+    gap: 10px;
+  }
+
+  .quiz-option {
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    border-radius: 16px;
+  }
+
+  .quiz-submit {
+    width: 80%;
+    padding: 14px 0;
+    margin-top: 6px;
+  }
+
+  .result-card {
+    padding: 72px 24px 32px;
+    gap: 12px;
+  }
+
+  .result-title {
+    font-size: 1.9rem;
+  }
+
+  .result-body {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
 .sheet {
   position: fixed;
   inset: 0;
