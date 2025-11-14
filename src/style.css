@@ -169,7 +169,6 @@ body {
 
 .progress-track {
   --progress-node-size: 40px;
-  --progress-track-padding: 24px;
   --progress-rail-color: rgba(255, 255, 255, 0.18);
   --progress-mask-color: var(--hero-dark, #171819);
   --progress-complete: 0;
@@ -178,19 +177,16 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   margin: 16px 0 32px;
-  padding: 0 var(--progress-track-padding);
-  width: calc(100% + var(--progress-track-padding) * 2);
-  margin-left: calc(-1 * var(--progress-track-padding));
-  margin-right: calc(-1 * var(--progress-track-padding));
 }
 
 .progress-track::before {
   content: '';
   position: absolute;
   top: 50%;
-  left: calc(var(--progress-track-padding) + var(--progress-node-size) / 2);
-  right: calc(var(--progress-track-padding) + var(--progress-node-size) / 2);
+  left: calc(var(--progress-node-size) / 2);
+  right: calc(var(--progress-node-size) / 2);
   height: 2px;
   background: var(--progress-rail-color);
   transform: translateY(-50%);
@@ -201,8 +197,8 @@ body {
   content: '';
   position: absolute;
   top: 50%;
-  left: calc(var(--progress-track-padding) + var(--progress-node-size) / 2);
-  right: calc(var(--progress-track-padding) + var(--progress-node-size) / 2);
+  left: calc(var(--progress-node-size) / 2);
+  right: calc(var(--progress-node-size) / 2);
   height: 2px;
   background: var(--progress-complete-color);
   transform: translateY(-50%) scaleX(var(--progress-complete));
@@ -328,7 +324,7 @@ body {
   width: 100%;
   border-radius: 18px;
   border: 2px solid rgba(255, 255, 255, 0.8);
-  padding: 16px 22px;
+  padding: 20px 24px;
   text-align: left;
   font-size: 1rem;
   font-weight: 400;
@@ -357,7 +353,7 @@ body {
   width: 70%;
   align-self: center;
   margin-top: 0px;
-  margin-bottom: 0;
+  margin-bottom: calc(8px + env(safe-area-inset-bottom, 0px) * 0.5);
   border-radius: 999px;
   padding: 16px 0;
   background: rgba(255, 255, 255, 0.08);
@@ -425,7 +421,6 @@ body {
 
   .progress-track {
     --progress-node-size: 32px;
-    --progress-track-padding: 16px;
     margin: 8px 0 20px;
   }
 
@@ -445,7 +440,7 @@ body {
   }
 
   .quiz-option {
-    padding: 12px 16px;
+    padding: 16px 18px;
     font-size: 0.95rem;
     border-radius: 16px;
   }
