@@ -621,7 +621,7 @@ body {
   transform: rotate(-48.6deg);
   pointer-events: none;
   z-index: 0;
-  --band-image: url('/public/band1.svg');
+  --band-image: url('../public/band1.svg');
 }
 
 .band-strip {
