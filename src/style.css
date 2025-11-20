@@ -84,6 +84,21 @@ body {
   isolation: isolate;
 }
 
+.hero-shell h1 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  line-height: 1;
+  align-items: flex-start;
+}
+
+.inline-icon {
+  display: inline-block;
+  vertical-align: middle;
+  height: 0.95em;
+  margin: 0 0.1em;
+}
+
 .hero-shell::after {
   content: '';
   position: absolute;
