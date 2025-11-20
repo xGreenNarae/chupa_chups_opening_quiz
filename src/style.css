@@ -697,6 +697,14 @@ body {
   animation-delay: -2.5s;
 }
 
+.band-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  z-index: 1;
+}
+
 .result-card {
   min-height: 100vh;
   min-height: var(--viewport-height, 100vh);
