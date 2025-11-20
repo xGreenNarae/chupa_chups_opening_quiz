@@ -30,8 +30,9 @@
   --hero-mid: #121015;
   --hero-accent: #1f1a25;
   --viewport-height: 100vh;
-  --band-duration-scale: 1.4;
+  --band-duration-scale: 2.1;
   --band-scale: 1.01;
+  --band-height: 140px;
   --font-base: 'Happiness Sans', 'Noto Sans KR', system-ui, -apple-system,
     BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
@@ -630,8 +631,8 @@ body {
 .band-strip {
   position: absolute;
   left: -40%;
-  width: 240%;
-  height: 92px;
+  width: 800%;
+  height: var(--band-height, 140px);
   --band-tile-size: calc(var(--band-width, 1937px) * var(--band-scale, 1));
   background-image: var(--band-image);
   background-repeat: repeat-x;
