@@ -30,6 +30,8 @@
   --hero-mid: #121015;
   --hero-accent: #1f1a25;
   --viewport-height: 100vh;
+  --band-duration-scale: 1.4;
+  --band-scale: 1.01;
   --font-base: 'Happiness Sans', 'Noto Sans KR', system-ui, -apple-system,
     BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
@@ -622,6 +624,7 @@ body {
   pointer-events: none;
   z-index: 0;
   --band-image: url('../public/band1.svg');
+  --band-width: 1937px;
 }
 
 .band-strip {
@@ -629,10 +632,11 @@ body {
   left: -40%;
   width: 240%;
   height: 92px;
+  --band-tile-size: calc(var(--band-width, 1937px) * var(--band-scale, 1));
   background-image: var(--band-image);
   background-repeat: repeat-x;
   background-position: center;
-  background-size: auto 100%;
+  background-size: var(--band-tile-size) 100%;
   opacity: 1;
 }
 
@@ -657,7 +661,7 @@ body {
     background-position: 0 50%;
   }
   100% {
-    background-position: -100% 50%;
+    background-position: calc(-1 * var(--band-tile-size, 1937px)) 50%;
   }
 }
 
@@ -666,7 +670,7 @@ body {
     background-position: 0 50%;
   }
   100% {
-    background-position: 100% 50%;
+    background-position: var(--band-tile-size, 1937px) 50%;
   }
 }
 
@@ -679,21 +683,21 @@ body {
 }
 
 .band-strip--1 {
-  animation-duration: 6s;
+  animation-duration: calc(6s * var(--band-duration-scale, 1));
 }
 
 .band-strip--2 {
-  animation-duration: 7s;
+  animation-duration: calc(7s * var(--band-duration-scale, 1));
   animation-delay: -1.5s;
 }
 
 .band-strip--3 {
-  animation-duration: 8s;
+  animation-duration: calc(8s * var(--band-duration-scale, 1));
   animation-delay: -2s;
 }
 
 .band-strip--4 {
-  animation-duration: 9s;
+  animation-duration: calc(9s * var(--band-duration-scale, 1));
   animation-delay: -2.5s;
 }
 
