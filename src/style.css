@@ -611,6 +611,90 @@ body {
 .result-shell {
   background-color: var(--hero-dark);
   color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.band-bg {
+  position: absolute;
+  inset: -22%;
+  transform: rotate(-48.6deg);
+  pointer-events: none;
+  z-index: 0;
+  --band-image: url('/public/band1.svg');
+}
+
+.band-strip {
+  position: absolute;
+  left: -40%;
+  width: 220%;
+  height: 100px;
+  background-image: var(--band-image);
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: auto 100%;
+  opacity: 1;
+}
+
+.band-strip--1 {
+  top: 20%;
+}
+
+.band-strip--2 {
+  top: 35%;
+}
+
+.band-strip--3 {
+  top: 50%;
+}
+
+.band-strip--4 {
+  top: 65%;
+}
+
+@keyframes band-scroll-left {
+  from {
+    background-position: 0 50%;
+  }
+  to {
+    background-position: -100% 50%;
+  }
+}
+
+@keyframes band-scroll-right {
+  from {
+    background-position: 0 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+.band-strip--left {
+  animation: band-scroll-left 18s linear infinite;
+}
+
+.band-strip--right {
+  animation: band-scroll-right 18s linear infinite;
+}
+
+.band-strip--1 {
+  animation-duration: 14s;
+}
+
+.band-strip--2 {
+  animation-duration: 16s;
+  animation-delay: -3s;
+}
+
+.band-strip--3 {
+  animation-duration: 18s;
+  animation-delay: -5s;
+}
+
+.band-strip--4 {
+  animation-duration: 20s;
+  animation-delay: -7s;
 }
 
 .result-card {
@@ -623,6 +707,8 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   gap: 18px;
+  position: relative;
+  z-index: 2;
 }
 
 .result-card--perfect,
