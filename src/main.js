@@ -254,6 +254,28 @@ const initApp = () => {
         sheetNextAction = null;
     };
 
+    const resetQuizState = () => {
+        quizResults.clear();
+
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.classList.remove('is-selected');
+            option.setAttribute('aria-checked', 'false');
+        });
+
+        document.querySelectorAll('[data-submit]').forEach(button => {
+            button.disabled = true;
+            button.classList.remove('is-ready');
+        });
+
+        closeSheet();
+    };
+
+    const restartQuiz = () => {
+        resetQuizState();
+        goTo('landing');
+        focusSafely(document.querySelector('[data-page="landing"] [data-navigate="quiz-1"]'));
+    };
+
     const setSheetNextAction = handler => {
         sheetNextAction = typeof handler === 'function' ? handler : null;
     };
@@ -333,6 +355,10 @@ const initApp = () => {
     sheetNext?.addEventListener('click', () => {
         const focusTarget = sheetNextAction?.() ?? null;
         closeSheet(focusTarget);
+    });
+
+    document.querySelectorAll('[data-restart]').forEach(trigger => {
+        trigger.addEventListener('click', restartQuiz);
     });
 };
 
